@@ -3,7 +3,13 @@
     "name": "Auto-Pause Video",
     "version": "1.0",
     "description": "Pauses a video when you switch to a different tab",
-    "permissions": ["tabs", "scripting"],
+    "permissions": ["tabs", "scripting", "activeTab"],
+    "host_permissions": [
+      "*://*.chatgpt.com/*",
+      "http://192.168.200.132/*",
+      "https://10.100.4.26/*",
+      "*://*.github.com/*"
+    ],
     "background": {
       "service_worker": "background.js"
     },
