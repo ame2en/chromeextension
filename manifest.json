@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Auto-Pause Video",
+    "version": "1.0",
+    "description": "Pauses a video when you switch to a different tab",
+    "permissions": ["tabs", "scripting"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
