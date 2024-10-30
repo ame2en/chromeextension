@@ -5,7 +5,7 @@
     "description": "Pauses a video when you switch to a different tab",
     "permissions": ["tabs", "scripting", "activeTab"],
     "host_permissions": [
-      "*://*.chatgpt.com/*",
+      "*://*.youtube.com/*",
       "http://192.168.200.132/*",
       "https://10.100.4.26/*",
       "*://*.github.com/*"
@@ -15,7 +15,7 @@
     },
     "content_scripts": [
       {
-        "matches": ["*://*/*"],
+        "matches": ["*://*.youtube.com/*"],
         "js": ["content.js"]
       }
     ]

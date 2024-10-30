@@ -1,13 +1,14 @@
-chrome.tabs.onActivated.addListener(() => {
-    chrome.tabs.query({ active: false, currentWindow: true }, (tabs) => {
-      tabs.forEach(tab => {
+chrome.tabs.onActivated.addListener(activeInfo => {
+    chrome.tabs.get(activeInfo.tabId, (tab) => {
+      if (!tab.url.startsWith("chrome://")) {
         chrome.scripting.executeScript({
           target: { tabId: tab.id },
           function: pauseVideo
         });
-      });
+      }
     });
   });
+  
   
   chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.status === "complete" && tab.active === false) {
